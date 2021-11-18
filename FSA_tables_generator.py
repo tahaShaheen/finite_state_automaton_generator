@@ -1,10 +1,12 @@
 import itertools
 from itertools import permutations
-import pandas as pd
 
-NO_OF_STATES = 3
+NO_OF_STATES = 2
 ALPHABET = ["a", "b"]
 # ALPHABET = ["a", "b", "c"]
+
+# POSITIVE_EXAMPLES = ["aab", "abaab", "aaab", "aaaabbbb", "abab"]
+# NEGATIVE_EXAMPLES = ["a", "b", "bbbb", "abba", "baaaaba", "babb"]
 
 POSITIVE_EXAMPLES = ["a", "ab", "baa"]
 NEGATIVE_EXAMPLES = ["b", "bb", "ba", "aa", "aba"]
@@ -154,7 +156,7 @@ def check_against_examples(all_FSA, states):
     successful_FSA = [fsa for fsa in successful_FSA if fsa not in rejected_FSA]
     # printing the successful FSA
     if(len(successful_FSA) == 0):
-        print("no FSA with", len(states), "states can satisty all the examples")
+        print("no FSA with", len(states), "states can satisfy all the examples")
         print("please try with more states")
     else:
         print(len(successful_FSA), "of those have rejected all negative examples")
